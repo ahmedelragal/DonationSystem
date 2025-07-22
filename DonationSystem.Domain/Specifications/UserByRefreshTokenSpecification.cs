@@ -7,12 +7,11 @@ using System.Threading.Tasks;
 
 namespace DonationSystem.Domain.Specifications
 {
-    public class DonationWithUserSpecification : Specification<Donation>
+    public class UserByRefreshTokenSpecification : Specification<User>
     {
-        public DonationWithUserSpecification()
+        public UserByRefreshTokenSpecification(string refreshToken) : base(u => u.RefreshToken == refreshToken)
         {
-            AddInclude(d => d.User);
-            AddOrderBy(d => d.Amount);
+                
         }
     }
 }

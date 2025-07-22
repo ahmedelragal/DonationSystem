@@ -1,6 +1,7 @@
 ﻿using DonationSystem.Domain.Interfaces;
 using DonationSystem.Infrastructure.Data;
 using DonationSystem.Infrastructure.Repositories;
+using DonationSystem.Infrastructure.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -20,6 +21,8 @@ namespace DonationSystem.Infrastructure
                 options.UseSqlServer(config.GetConnectionString("DefaultConnection")));
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();
+
+            services.AddScoped<IAuthService, AuthService>();
 
             return services;
         }

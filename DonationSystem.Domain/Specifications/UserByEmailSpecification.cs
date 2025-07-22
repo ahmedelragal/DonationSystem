@@ -7,12 +7,10 @@ using System.Threading.Tasks;
 
 namespace DonationSystem.Domain.Specifications
 {
-    public class DonationWithUserSpecification : Specification<Donation>
+    public class UserByEmailSpecification : Specification<User>
     {
-        public DonationWithUserSpecification()
+        public UserByEmailSpecification(string email) : base(u => u.Email == email)
         {
-            AddInclude(d => d.User);
-            AddOrderBy(d => d.Amount);
         }
     }
 }
