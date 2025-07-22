@@ -7,17 +7,12 @@ using System.Threading.Tasks;
 
 namespace DonationSystem.Domain.Specifications
 {
-    public class DonationWithUserSpecification : BaseSpecification<Donation>
+    public class DonationWithUserSpecification : Specification<Donation>
     {
-        public DonationWithUserSpecification()
+        public DonationWithUserSpecification() : base(g=>g.Amount >= 10)
         {
             AddInclude(d => d.User);
-        }
-
-        public DonationWithUserSpecification(Guid id)
-            : base(d => d.Id == id)
-        {
-            AddInclude(d => d.User);
+            AddOrderBy(d => d.Amount);
         }
     }
 }
