@@ -12,6 +12,6 @@ namespace DonationSystem.Domain.Interfaces
         //IRepository<User> Users { get; }
         //IRepository<Donation> Donations { get; }
         IRepository<T> Repository<T>() where T : class;
-        Task<int> SaveAsync();
+        Task<int> CompleteAsync();
     }
 }

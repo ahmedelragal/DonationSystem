@@ -4,15 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DonationSystem.Domain.Entities
+namespace DonationSystem.Application.DTOs
 {
-    public class Donation
+    public class CreateDonationDto
     {
-        public Guid Id { get; set; }
         public decimal Amount { get; set; }
-        public DateTime DonatedAt { get; set; } = DateTime.UtcNow;
-
         public Guid UserId { get; set; }
-        public required User User { get; set; }
     }
 }
