@@ -32,11 +32,23 @@ namespace DonationSystem.Infrastructure.Data
             {
                 entity.HasKey(d => d.Id);
                 entity.Property(d => d.Amount).IsRequired();
+
                 entity.HasOne(d => d.User)
                       .WithMany(u => u.Donations)
                       .HasForeignKey(d => d.UserId)
                       .OnDelete(DeleteBehavior.Cascade);
+
+                entity.HasMany(d => d.Images)
+                      .WithOne(i => i.Donation)
+                      .HasForeignKey(i => i.DonationId)
+                      .OnDelete(DeleteBehavior.Cascade);
             });
+            modelBuilder.Entity<UserRole>().HasKey(ur => new { ur.UserId, ur.RoleName });
+
+            modelBuilder.Entity<UserRole>()
+                .HasOne(ur => ur.User)
+                .WithMany(u => u.UserRoles)
+                .HasForeignKey(ur => ur.UserId);
         }
     }
 }

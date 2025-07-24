@@ -6,7 +6,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DonationSystem.Application.Features.Donations.Commands.CreateDonation
+namespace DonationSystem.Application.Features.Auth.Commands.UpdateUser
 {
-    public record CreateDonationCommand(CreateDonationDto Donation) : IRequest<Guid>;
+    public record UpdateUserCommand(Guid UserId, UpdateUserDto Dto) : IRequest<bool>;
+    
 }

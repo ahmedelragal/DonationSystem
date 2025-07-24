@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DonationSystem.Application.Features.Donations.Commands.CreateDonation
+namespace DonationSystem.Application.Features.Donations.Queries.GetDonations
 {
-    public record CreateDonationCommand(CreateDonationDto Donation) : IRequest<Guid>;
+    public record GetDonationByIdQuery (Guid Id) : IRequest<DonationDto>;
 }

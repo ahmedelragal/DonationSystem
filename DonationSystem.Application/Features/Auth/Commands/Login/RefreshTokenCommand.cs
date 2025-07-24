@@ -8,8 +8,5 @@ using System.Threading.Tasks;
 
 namespace DonationSystem.Application.Features.Auth.Commands.Login
 {
-    public class RefreshTokenCommand : IRequest<LoginResponseDto>
-    {
-        public string RefreshToken { get; set; } = string.Empty;
-    }
+    public record RefreshTokenCommand(string RefreshToken) : IRequest<LoginResponseDto>;
 }

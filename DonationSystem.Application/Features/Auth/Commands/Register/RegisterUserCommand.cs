@@ -8,13 +8,5 @@ using System.Threading.Tasks;
 
 namespace DonationSystem.Application.Features.Auth.Commands.Register
 {
-    public class RegisterUserCommand : IRequest<string>
-    {
-        public RegisterUserDto UserDto { get; set; }
-
-        public RegisterUserCommand(RegisterUserDto userDto)
-        {
-            UserDto = userDto;
-        }
-    }
+    public record RegisterUserCommand(RegisterUserDto UserDto) : IRequest<string>;
 }

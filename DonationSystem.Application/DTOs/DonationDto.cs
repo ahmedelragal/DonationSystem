@@ -9,8 +9,10 @@ namespace DonationSystem.Application.DTOs
     public class DonationDto
     {
         public Guid Id { get; set; }
+        public string? Title { get; set; }
         public decimal Amount { get; set; }
         public DateTime DonatedAt { get; set; }
         public string UserName { get; set; } = string.Empty;
+        public List<string> ImageUrls { get; set; } = new();
     }
 }

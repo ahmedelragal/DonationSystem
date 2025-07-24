@@ -12,6 +12,13 @@ namespace DonationSystem.Domain.Specifications
         public DonationWithUserSpecification()
         {
             AddInclude(d => d.User);
+            AddInclude(d => d.Images);
+            AddOrderBy(d => d.Amount);
+        }
+        public DonationWithUserSpecification(Guid UserId) : base(d => d.UserId == UserId)
+        {
+            AddInclude(d => d.User);
+            AddInclude(d => d.Images);
             AddOrderBy(d => d.Amount);
         }
     }

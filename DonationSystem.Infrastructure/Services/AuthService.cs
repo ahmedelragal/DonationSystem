@@ -21,12 +21,15 @@ namespace DonationSystem.Infrastructure.Services
 
         public string GenerateJwtToken(User user)
         {
-            var claims = new[]
+            var claims = new List<Claim>
             {
             new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
             new Claim(ClaimTypes.Name, user.FullName),
-            new Claim(ClaimTypes.Role, user.Role)
-        };
+            };
+            foreach (var role in user.UserRoles)
+            {
+                claims.Add(new Claim(ClaimTypes.Role, role.RoleName));
+            }
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config.GetValue<string>("JwtSettings:Secret")!));
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);

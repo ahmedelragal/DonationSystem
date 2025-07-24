@@ -40,6 +40,7 @@ namespace DonationSystem.Application.Features.Auth.Commands.Login
             await _unitOfWork.CompleteAsync();
             return new LoginResponseDto
             {
+                UserId = user.Id,
                 Token = jwt,
                 RefreshToken = refreshToken
             };

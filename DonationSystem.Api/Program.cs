@@ -1,11 +1,9 @@
 ﻿using AutoMapper;
 using DonationSystem.Application;
-using DonationSystem.Application.Behaviors;
 using DonationSystem.Application.MappingProfiles;
 using DonationSystem.Domain.Interfaces;
 using DonationSystem.Infrastructure;
 using DonationSystem.Infrastructure.Services;
-using FluentValidation;
 using MediatR;
 using Microsoft.OpenApi.Models;
 using System.Reflection;

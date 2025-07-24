@@ -4,6 +4,7 @@ using DonationSystem.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DonationSystem.Infrastructure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250723232107_donation_images")]
+    partial class donation_images
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -90,22 +93,13 @@ namespace DonationSystem.Infrastructure.Migrations
                     b.Property<DateTime?>("RefreshTokenExpiry")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("Role")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
 
                     b.ToTable("Users");
-                });
-
-            modelBuilder.Entity("DonationSystem.Domain.Entities.UserRole", b =>
-                {
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("RoleName")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("UserId", "RoleName");
-
-                    b.ToTable("UserRole");
                 });
 
             modelBuilder.Entity("DonationSystem.Domain.Entities.Donation", b =>
@@ -130,17 +124,6 @@ namespace DonationSystem.Infrastructure.Migrations
                     b.Navigation("Donation");
                 });
 
-            modelBuilder.Entity("DonationSystem.Domain.Entities.UserRole", b =>
-                {
-                    b.HasOne("DonationSystem.Domain.Entities.User", "User")
-                        .WithMany("UserRoles")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("User");
-                });
-
             modelBuilder.Entity("DonationSystem.Domain.Entities.Donation", b =>
                 {
                     b.Navigation("Images");
@@ -149,8 +132,6 @@ namespace DonationSystem.Infrastructure.Migrations
             modelBuilder.Entity("DonationSystem.Domain.Entities.User", b =>
                 {
                     b.Navigation("Donations");
-
-                    b.Navigation("UserRoles");
                 });
 #pragma warning restore 612, 618
         }

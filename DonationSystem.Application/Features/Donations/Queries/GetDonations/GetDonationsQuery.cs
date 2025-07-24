@@ -8,7 +8,5 @@ using System.Threading.Tasks;
 
 namespace DonationSystem.Application.Features.Donations.Queries.GetDonations
 {
-    public class GetDonationsQuery : IRequest<List<DonationDto>>
-    {
-    }
+    public record GetDonationsQuery : IRequest<List<DonationDto>>;
 }

@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace DonationSystem.Domain.Specifications
 {
-    public class UserByEmailSpecification : Specification<User>
+    public class UserWithRolesSpecification : Specification<User>
     {
-        public UserByEmailSpecification(string email) : base(u => u.Email == email)
+        public UserWithRolesSpecification(Guid Id) : base(u => u.Id == Id)
         {
             AddInclude(u => u.UserRoles);
         }

@@ -1,10 +1,14 @@
 ﻿using DonationSystem.Application.DTOs;
 using DonationSystem.Application.Features.Donations.Commands.CreateDonation;
+using DonationSystem.Application.Features.Donations.Commands.DeleteDonation;
 using DonationSystem.Application.Features.Donations.Queries.GetDonations;
+using DonationSystem.Application.Features.Donations.Queries.GetUserDonations;
+using DonationSystem.Domain.Entities;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace DonationSystem.API.Controllers
 {
@@ -21,7 +25,8 @@ namespace DonationSystem.API.Controllers
 
         [HttpPost]
         [Authorize]
-        public async Task<IActionResult> Create(CreateDonationCommand command)
+        [Consumes("multipart/form-data")]
+        public async Task<IActionResult> Create([FromForm] CreateDonationCommand command)
         {
             var id = await _mediator.Send(command);
             return Ok(new ApiResponse<object>
@@ -38,7 +43,40 @@ namespace DonationSystem.API.Controllers
             var donations = await _mediator.Send(new GetDonationsQuery());
             return Ok(new ApiResponse<object>
             {
-                Message = "Donation Obtained Successfully",
+                Message = "Donations Obtained Successfully",
+                Data = donations
+            });
+        }
+        [HttpGet("{id}")]
+        [Authorize]
+        public async Task<IActionResult> GetById(Guid id)
+        {
+            var donation = await _mediator.Send(new GetDonationByIdQuery(id));
+            return Ok(new ApiResponse<object>
+            {
+                Message = "Donation Found Successfully",
+                Data = donation
+            });
+        }
+        [HttpDelete("{id}")]
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> Delete(Guid id)
+        {
+            await _mediator.Send(new DeleteDonationCommand(id));
+            return Ok(new ApiResponse<object>
+            {
+                Message = "Donation Deleted Successfully",
+                Data = null
+            });
+        }
+        [HttpGet("user-donations/{userId}")]
+        [Authorize]
+        public async Task<IActionResult> GetUserDonations(Guid userId)
+        {
+            var donations = await _mediator.Send(new GetMyDonationsQuery(userId));
+            return Ok(new ApiResponse<object>
+            {
+                Message = "User donations retrieved successfully",
                 Data = donations
             });
         }

@@ -11,7 +11,7 @@ namespace DonationSystem.Domain.Specifications
     {
         public UserByRefreshTokenSpecification(string refreshToken) : base(u => u.RefreshToken == refreshToken)
         {
-                
+            AddInclude(u=>u.UserRoles);
         }
     }
 }
