@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36301.6 d17.14
+VisualStudioVersion = 17.14.36301.6
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DonationSystem.Api", "DonationSystem.Api\DonationSystem.Api.csproj", "{ACAF6719-067D-467B-A896-026149DAE7FB}"
 EndProject
@@ -10,6 +10,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DonationSystem.Infrastructure", "DonationSystem.Infrastructure\DonationSystem.Infrastructure.csproj", "{7FE8BED7-87DE-4BD1-9E15-D7070616C332}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DonationSystem.Application", "DonationSystem.Application\DonationSystem.Application.csproj", "{6F1F2C5A-AF86-4243-B0AE-E6B9EE576B40}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DonationSystem.Tests", "DonationSystem.Tests\DonationSystem.Tests.csproj", "{F978EBB6-A18C-4B36-A2A3-C5884CB995C8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{6F1F2C5A-AF86-4243-B0AE-E6B9EE576B40}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6F1F2C5A-AF86-4243-B0AE-E6B9EE576B40}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6F1F2C5A-AF86-4243-B0AE-E6B9EE576B40}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F978EBB6-A18C-4B36-A2A3-C5884CB995C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F978EBB6-A18C-4B36-A2A3-C5884CB995C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F978EBB6-A18C-4B36-A2A3-C5884CB995C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F978EBB6-A18C-4B36-A2A3-C5884CB995C8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
