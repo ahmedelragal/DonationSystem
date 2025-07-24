@@ -1,4 +1,4 @@
-﻿using DonationSystem.Application.DTOs;
+﻿using DonationSystem.Application.DTOs.Auth;
 using DonationSystem.Domain.Entities;
 using DonationSystem.Domain.Interfaces;
 using DonationSystem.Domain.Specifications;

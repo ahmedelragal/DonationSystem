@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DonationSystem.Application.DTOs
+namespace DonationSystem.Application.DTOs.Donations
 {
     public class CreateDonationDto
     {

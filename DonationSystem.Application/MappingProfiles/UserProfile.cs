@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
-using DonationSystem.Application.DTOs;
+using DonationSystem.Application.DTOs.Auth;
+using DonationSystem.Application.DTOs.Donations;
 using DonationSystem.Domain.Entities;
 using System;
 using System.Collections.Generic;

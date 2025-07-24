@@ -1,4 +1,4 @@
-﻿using DonationSystem.Application.DTOs;
+﻿using DonationSystem.Application.DTOs.Donations;
 using MediatR;
 using System;
 using System.Collections.Generic;

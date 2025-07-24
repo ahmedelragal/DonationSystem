@@ -1,5 +1,6 @@
 ﻿using DonationSystem.API.Controllers;
 using DonationSystem.Application.DTOs;
+using DonationSystem.Application.DTOs.Auth;
 using DonationSystem.Application.Features.Auth.Commands.ChangePassword;
 using DonationSystem.Application.Features.Auth.Commands.Login;
 using DonationSystem.Application.Features.Auth.Commands.Register;

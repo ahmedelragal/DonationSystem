@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using DonationSystem.Application.DTOs;
+using DonationSystem.Application.DTOs.Donations;
 using DonationSystem.Application.Features.Donations.Queries.GetDonations;
 using DonationSystem.Domain.Entities;
 using DonationSystem.Domain.Interfaces;
