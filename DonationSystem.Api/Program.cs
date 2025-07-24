@@ -1,17 +1,20 @@
 ﻿using AutoMapper;
+using DonationSystem.Api.Middlewares;
 using DonationSystem.Application;
 using DonationSystem.Application.MappingProfiles;
 using DonationSystem.Domain.Interfaces;
 using DonationSystem.Infrastructure;
 using DonationSystem.Infrastructure.Services;
 using MediatR;
-using Microsoft.OpenApi.Models;
-using System.Reflection;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
+using System.Reflection;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddMemoryCache();
 
 builder.Services.AddInfrastructure(builder.Configuration);
 
@@ -85,7 +88,9 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseMiddleware<RateLimitingMiddleware>();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();

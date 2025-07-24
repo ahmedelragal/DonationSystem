@@ -69,16 +69,6 @@ namespace DonationSystem.API.Controllers
                 Data = null
             });
         }
-        [HttpGet("user-donations/{userId}")]
-        [Authorize]
-        public async Task<IActionResult> GetUserDonations(Guid userId)
-        {
-            var donations = await _mediator.Send(new GetMyDonationsQuery(userId));
-            return Ok(new ApiResponse<object>
-            {
-                Message = "User donations retrieved successfully",
-                Data = donations
-            });
-        }
+        
     }
 }
